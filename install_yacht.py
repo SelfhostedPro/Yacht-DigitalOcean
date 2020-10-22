@@ -50,7 +50,7 @@ def deploy(email, port):
 	dclient = docker.from_env()
 	try:
 		dclient.containers.run(
-			image="selfhostedpro/yacht:latest",
+			image="selfhostedpro/yacht:do",
 			remove=False,
 			detach=True,
 			ports = {'8000/tcp': port},
