@@ -11,7 +11,7 @@ This is just the scripts and instructions I'm using to setup my digitalocean ima
 4. `cd /opt/SelfhostedPro/`
 5. ```
     sudo apt-get update -y
-    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3-pip
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update -y
