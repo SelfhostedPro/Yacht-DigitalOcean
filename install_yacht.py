@@ -45,7 +45,7 @@ def get_port():
 def deploy(email, port):
 	clear()
 	input("Press enter to deploy Yacht... (This also allows incoming traffic on the port you have specified)")
-	ufw.add('allow' + port)
+	ufw.add('allow' + str(port))
 	ufw.reload()
 	dclient = docker.from_env()
 	try:
