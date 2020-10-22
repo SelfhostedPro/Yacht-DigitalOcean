@@ -69,6 +69,7 @@ def deploy(email, port):
 		main_loop(email)
 	clear()
 	print("\nEmail is set to: " + email)
+	print("\nThe default password is: pass\nPlease change this once you've logged in")
 	print("\nYacht is available on: " + str(port) + '\n')
 	print("If you need to run this script again you can use the following command:")
 	print("/opt/SelfhostedPro/install_yacht.sh")
