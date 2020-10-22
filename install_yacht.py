@@ -47,7 +47,6 @@ def deploy(email, port):
 	input("Press enter to deploy Yacht... (This also allows incoming traffic on the port you have specified)")
 	ufw.add('allow' + port)
 	ufw.reload()
-	passwd = secrets.token_hex(16)
 	dclient = docker.from_env()
 	try:
 		dclient.containers.run(
@@ -61,7 +60,7 @@ def deploy(email, port):
 				'/root/.yacht/config':
 					{'bind': '/config', 'mode': 'rw'}
 			},
-			environment = ["ADMIN_EMAIL="+email, "ADMIN_PASSWORD="+passwd, "SECRET_KEY="+secrets.token_hex(16)]
+			environment = ["ADMIN_EMAIL="+email, "SECRET_KEY="+secrets.token_hex(16)]
 		)
 	except Exception as e:
 		clear()
@@ -70,7 +69,6 @@ def deploy(email, port):
 		main_loop(email)
 	clear()
 	print("\nEmail is set to: " + email)
-	print("\nYour generated password is: "+passwd+"\nPlease change this once you've logged in")
 	print("\nYacht is available on: " + str(port) + '\n')
 	print("If you need to run this script again you can use the following command:")
 	print("/opt/SelfhostedPro/install_yacht.sh")
