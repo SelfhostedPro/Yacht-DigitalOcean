@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Configured as part of the DigitalOcean 1-Click Image build process
+. /root/.digitalocean_password
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+********************************************************************************
+Welcome to SelfhostedPro's 1-Click Yacht Droplet.
+To keep this Droplet secure, the UFW firewall is enabled.
+All ports are BLOCKED except 22 (SSH) and 8000 (Yacht).
+* The Yacht Getting Started guide is available at:
+  https://yacht.sh/Installation/gettingstarted/
+* You can SSH to this Droplet in a terminal as root: ssh root@$myip
+* Docker is installed and configured per Docker's recommendations:
+  https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+* In a web browser visit http://$myip:8000 to get started using Yacht.
+    Username: admin@yacht.local
+    Password: $yacht_admin_pass
+
+For help and more information, visit https://marketplace.digitalocean.com/apps/yacht
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF
