@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Configured as part of the DigitalOcean 1-Click Image build process
-. /root/.digitalocean_password
+# . /root/.yacht_password
 
 myip=$(hostname -I | awk '{print$1}')
 cat <<EOF
@@ -17,7 +17,7 @@ All ports are BLOCKED except 22 (SSH) and 8000 (Yacht).
 
 * In a web browser visit http://$myip:8000 to get started using Yacht.
     Username: admin@yacht.local
-    Password: $yacht_admin_pass
+    Password: pass
 
 For help and more information, visit https://marketplace.digitalocean.com/apps/yacht
 ********************************************************************************
